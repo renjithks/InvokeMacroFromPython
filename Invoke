@@ -1,0 +1,17 @@
+import win32com.client as win32
+
+# Open Excel
+excel = win32.gencache.EnsureDispatch('Excel.Application')
+
+# Open the workbook containing the macro
+workbook = excel.Workbooks.Open("C:\\path\\to\\workbook.xlsm")
+
+# Run the macro
+excel.Application.Run("ModuleName.MacroName")
+
+# Save and close the workbook
+workbook.Save()
+workbook.Close()
+
+# Quit Excel
+excel.Quit()
